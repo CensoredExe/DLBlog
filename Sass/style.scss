@@ -11,3 +11,58 @@ body {
     width: 80%;
     margin: 0 auto;
 }
+header {
+    height: 45vh;
+    background-color: rgb(89, 27, 190);
+    background-position: center center;
+    padding-top: 10px;
+    nav {
+        color: #fff;
+        .logo-hold {
+            display: inline;
+            font-size: 24px;
+            font-weight: 300;
+        }
+        .logo {
+            display: inline-block;
+            color: #fff;
+           
+        }
+        .items-hold {
+            display: inline;
+            color: #fff;
+            float: right;
+            .list-li {
+                display: inline;
+                margin-left: 20px;
+            }
+            .list-a {
+                display: inline;
+                color: #fff;
+                text-decoration: none;
+                font-size: 20px;
+                transition: all .2s;
+                &:hover {
+                    color: rgb(157, 240, 240);
+                }
+            }
+        }
+    }
+    .txt-box {
+        position: absolute;
+        top: 20%;
+        color: #fff;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-weight: 300;
+        .title {
+            font-size: 65px;
+            font-weight: 300;
+        }
+        .sub-title {
+            font-size: 20px;
+            font-weight: 300;
+        }
+    }
+}

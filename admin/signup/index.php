@@ -13,7 +13,7 @@
 
         <!-- Links, CSS, Fonts, Icons and frameworks -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../../css/style.css">
 
     </head>
     <body>
@@ -21,20 +21,17 @@
     <nav>
         <div class="row">
             <div class="logo-hold">
-                <p class="logo"><a href="">Digital Leaders</a></p>
+                <p class="logo">Digital Leaders</p>
             </div>
 
             <ul class="items-hold">
                 <li class="list-li"><a href="#" class="list-a">SBHS</a></li>
                 <li class="list-li"><a href="#" class="list-a">FAQ</a></li>
-                <li class="list-li"><a href="admin/signup/" class="list-a">Login</a></li>
+                <li class="list-li"><a href="#" class="list-a">Login</a></li>
             </ul>
         </div>
     </nav>
-        <div class="txt-box">
-            <h1 class="title">Digital Leaders</h1>
-            <p class="sub-title">Blog and News</p>
-        </div>
+        
     </header>
 
     <!-- Javascript + JQuery -->
