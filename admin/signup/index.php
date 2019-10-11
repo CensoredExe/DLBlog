@@ -1,3 +1,6 @@
+<?php
+    include_once "../../includes/include.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +24,7 @@
     <nav>
         <div class="row">
             <div class="logo-hold">
-                <p class="logo">Digital Leaders</p>
+                <a href="../../" class="logo">Digital Leaders</a>
             </div>
 
             <ul class="items-hold">
@@ -31,9 +34,25 @@
             </ul>
         </div>
     </nav>
-        
     </header>
-
+    <div class="form-hold">
+    <h2 class="form-title">Signup</h2><br><hr><br>
+        <form method="POST">
+            <label for="user_name" class="form-label">Whats your name?</label>
+            <input type="text" id="user_name" name="user_name" class="form-input" placeholder="eg. John Doe" required>
+            <label for="user_email" class="form-label">Whats your email?</label>
+            <input type="text" id="user_email" name="user_email" class="form-input" placeholder="eg. john@sbhs.com" required>
+            <label for="user_password" class="form-label">Choose a password</label>
+            <input type="password" id="user_password" name="user_password" class="form-input" placeholder="***********************" required>
+            <button type="submit" name="submit" class="form-button">Signup</button>
+        </form>
+        <?php 
+           if(isset($_POST['submit'])){
+               $user_name = htmlspecialchars(mysqli_real_escape_string($_POST['user_name']))
+                
+           } 
+        ?>
+    </div>
     <!-- Javascript + JQuery -->
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
