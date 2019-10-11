@@ -1,3 +1,4 @@
+<?php session_start();include_once "includes/include.php";?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,9 +26,21 @@
             </div>
 
             <ul class="items-hold">
-                <li class="list-li"><a href="#" class="list-a">SBHS</a></li>
+                <li class="list-li"><a target="_blank" href="https://www.southbromsgrove.worcs.sch.uk/" class="list-a">SBHS</a></li>
                 <li class="list-li"><a href="#" class="list-a">FAQ</a></li>
-                <li class="list-li"><a href="admin/signup/" class="list-a">Login</a></li>
+                <?php
+                    if(isset($_SESSION['user_id'])){
+                        ?>
+                        <li class="list-li"><a href="admin/" class="list-a">Account</a></li>
+                        <?php
+                    }else {
+                        ?>
+                        <li class="list-li"><a href="admin/login/" class="list-a">Login</a></li>
+
+                        <?php
+                    }
+                ?>
+                
             </ul>
         </div>
     </nav>

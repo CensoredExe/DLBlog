@@ -1,5 +1,9 @@
 <?php
     include_once "../../includes/include.php";
+    session_start();
+    if(isset($_SESSION['user_id'])){
+        echo "<script>window.location = '../'</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +34,7 @@
             <ul class="items-hold">
                 <li class="list-li"><a href="#" class="list-a">SBHS</a></li>
                 <li class="list-li"><a href="#" class="list-a">FAQ</a></li>
-                <li class="list-li"><a href="#" class="list-a">Login</a></li>
+                <li class="list-li"><a href="../login/" class="list-a">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -44,12 +48,45 @@
             <input type="text" id="user_email" name="user_email" class="form-input" placeholder="eg. john@sbhs.com" required>
             <label for="user_password" class="form-label">Choose a password</label>
             <input type="password" id="user_password" name="user_password" class="form-input" placeholder="***********************" required>
+            <label for="code" class="form-label">Code</label>
+            <input type="password" id="code" name="code" class="form-input" placeholder="********" required>
             <button type="submit" name="submit" class="form-button">Signup</button>
         </form>
         <?php 
            if(isset($_POST['submit'])){
-               $user_name = htmlspecialchars(mysqli_real_escape_string($_POST['user_name']))
-                
+                $user_name = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['user_name']));
+                $user_email = mysqli_real_escape_string($conn, $_POST['user_email']);
+                $user_password = $_POST['user_password'];
+                $user_code = $_POST['code'];
+                $user_pfp = "uploads/default.png";
+                if(empty($user_name) || empty($user_email) || empty($user_password)){
+                    // Neccersary fiels are empty.
+                    echo "<p class='error'>Error, fill in all fields</p>";
+                    exit();
+                }
+                $code = "tempcode";
+                if($code != $user_code){
+                    // Code is wrong
+                    echo "<p class='error'>Error, code incorrect. Please get a code from the relevant administrator.</p>";
+                    exit();
+                }
+                // All basic validation is done
+
+                $sql = "SELECT * FROM `users` WHERE `user_email`='$user_email'";
+                $result = mysqli_query($conn, $sql);
+                if(mysqli_num_rows($result) >= 1){
+                    // Account exists
+                    echo "<p class='error'>Error, account exists or email in use. <a href='../login'>Login?</a></p>";
+                    exit();
+                }else {
+                    $user_password = password_hash($user_password, PASSWORD_DEFAULT);
+                    $sql = "INSERT INTO `users` (`user_name`, `user_email`, `user_bio`, `user_password`, `user_pfp`, `isRoot`) values ('$user_name', '$user_email', 'None entered.', '$user_password', '$user_pfp', '0')";
+                    if(mysqli_query($conn, $sql)){
+                        echo "<p class='success'>Completed! <a href='../login'>Login</a> now</p>";
+                    }else {
+                        echo "<p class='error'>Error, databse issue.</p>";
+                    }
+                }
            } 
         ?>
     </div>
