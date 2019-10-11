@@ -32,7 +32,7 @@
             </div>
 
             <ul class="items-hold">
-                <li class="list-li"><a href="#" class="list-a">SBHS</a></li>
+                <li class="list-li"><a target="_blank" href="https://www.southbromsgrove.worcs.sch.uk/" class="list-a">SBHS</a></li>
                 <li class="list-li"><a href="#" class="list-a">FAQ</a></li>
                 <li class="list-li"><a href="../signup/" class="list-a">Signup</a></li>
             </ul>

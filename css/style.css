@@ -88,15 +88,15 @@ header .txt-box .sub-title {
   overflow: auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  top: 40%;
+  top: 43%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background-color: #fff;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 25px;
-  -webkit-box-shadow: 3px 2px 5px #242424;
-          box-shadow: 3px 2px 5px #242424;
+  -webkit-box-shadow: 3px 2px 5px rgba(36, 36, 36, 0.733);
+          box-shadow: 3px 2px 5px rgba(36, 36, 36, 0.733);
 }
 
 .form-hold .form-title {
@@ -113,7 +113,7 @@ header .txt-box .sub-title {
   margin-bottom: 15px;
   margin-top: 15px;
   border-radius: 4px;
-  border: 1px solid #000;
+  border: 1px solid rgba(0, 0, 0, 0.733);
   width: 100%;
   padding: 5px 10px;
   font-size: 20px;
@@ -130,6 +130,14 @@ header .txt-box .sub-title {
 
 .form-hold .form-button:hover {
   cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
 }
 
 @media (max-width: 600px) {

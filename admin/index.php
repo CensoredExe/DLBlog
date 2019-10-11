@@ -37,7 +37,6 @@ if(!isset($_SESSION['user_id'])){
 <body>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Digital Leaders</a>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="logout.php">Sign out</a>
@@ -79,7 +78,7 @@ if(!isset($_SESSION['user_id'])){
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Pending Posts</span>
-          <a class="d-flex align-items-center text-muted" href="#">
+          <a class="d-flex align-items-center text-muted" href="addpost.php">
             <span data-feather="plus-circle"></span>
           </a>
         </h6>
@@ -117,17 +116,10 @@ if(!isset($_SESSION['user_id'])){
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
+            <p style="font-size: 16px;">Hello, <?php echo $_SESSION['user_name']; ?><?php if($_SESSION['isRoot']){echo "<br>Root User";} ?></p>
+            
         </div>
       </div>
-
-
       
       </div>
     </main>
